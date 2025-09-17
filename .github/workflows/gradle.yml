@@ -51,6 +51,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
         env:
-          DATASOURCE_URL: jdbc:postgresql://localhost:5432/db_product
-          DATASOURCE_USERNAME: postgres
-          DATASOURCE_PASSWORD: postgres
+          DATABASE_URL: jdbc:postgresql://localhost:5432/db_product
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: postgres

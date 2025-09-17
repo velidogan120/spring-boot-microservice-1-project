@@ -18,12 +18,14 @@ repositories {
     mavenCentral()
 }
 
-bootJar {
-    enabled = false
-}
+tasks {
+    named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+        enabled = false
+    }
 
-jar {
-    enabled = true
+    named<Jar>("jar") {
+        enabled = true
+    }
 }
 
 dependencies {

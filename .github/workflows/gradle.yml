@@ -53,7 +53,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build -Dspring.profiles.active=prod --no-daemon
+        run: ./gradlew build -x test -Dspring.profiles.active=prod --no-daemon
                   
       - name: Run tests
         run: ./gradlew test --no-daemon

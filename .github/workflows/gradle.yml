@@ -43,11 +43,13 @@ jobs:
 
       - name: Wait for PostgreSQL
         run: |
-            until pg_isready -h localhost -p 5432 -U postgres; do
-              echo "Waiting for postgres..."
-              sleep 2
-            done
-            echo "Postgres is ready"
+          echo "Waiting for Postgres to be ready..."
+          for i in {1..30}; do
+            pg_isready -h localhost -p 5432 -U postgres && break
+            sleep 2
+          done
+          echo "Postgres is ready"
+
 
       - name: Build with Gradle
         run: ./gradlew build
